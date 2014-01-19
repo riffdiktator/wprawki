@@ -54,8 +54,11 @@ Wprawki::Application.routes.draw do
   #     resources :products
   #   end
   root "startowa#index"
+
+  resources :pages, :realizations, only: [:index, :show]
+
   namespace :admin do
     root "pages#index"
-    resources :pages
+    resources :pages, :realizations, :gallery, :photos
   end
 end
