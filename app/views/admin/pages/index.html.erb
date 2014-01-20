@@ -2,4 +2,19 @@
   <div>menu</div>
 <% end %>
 <h1><%= @powitanie %></h1>
-<textarea name="" id="" class="tinymce"></textarea>
+<% @pages.each do |page| %>
+    <div>
+	<span>
+		<strong><%= page.id %></strong>
+	</span>
+  	<span>
+      	<%= link_to page.title, admin_page_url(page) %>
+  	</span>
+  	<span>
+  		<%= link_to "Edytuj", edit_admin_page_url(page) %>
+  	</span>
+  	<span>
+  		<%= link_to "Usuń", admin_page_url(page), method: "delete" %>
+  	</span>
+    </div>
+<% end %>
