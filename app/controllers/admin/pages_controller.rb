@@ -12,6 +12,10 @@ class Admin::PagesController < ApplicationController
 
 	end
 
+	def edit
+		@numer = params[:id]
+	end
+
 	def create 
 		@page = Page.new(page_params)
 	    @page.save
@@ -19,9 +23,10 @@ class Admin::PagesController < ApplicationController
 	end
 
 	def destroy
-		redirect_to admin_pages_url
+		@numer = params[:id]
+		Page.destroy(params[:id])
 	end
-	
+
 	private
 	  def page_params
 	    params.require(:page).permit(:title, :text)
