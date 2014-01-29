@@ -1,4 +1,5 @@
 class Admin::PagesController < ApplicationController
+
 	def index
 		@powitanie = "Strona główna panelu"
 		@pages = Page.all
@@ -23,6 +24,7 @@ class Admin::PagesController < ApplicationController
 	def create 
 		@page = Page.new(page_params)
 	    @page.save
+	    flash[:notice] = "Post successfully created"
 	    redirect_to admin_pages_url
 	end
 	def update

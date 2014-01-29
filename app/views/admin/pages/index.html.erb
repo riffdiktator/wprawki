@@ -1,6 +1,12 @@
 <% content_for :admin_nav do %>
   <div>menu</div>
 <% end %>
+<% if flash[:notice] %>
+  <div class="alert alert-success alert-dismissable">
+    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+    <%= flash[:notice] %>
+  </div>
+<% end %>
 <h1><%= @powitanie %></h1>
 <% @pages.each do |page| %>
     <div>
