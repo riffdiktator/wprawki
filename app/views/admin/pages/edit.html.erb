@@ -1,1 +1,9 @@
 <h1>Edycja podstrony <%= @numer %></h1>
+<%= form_for :page, url: admin_page_path, html: {method: "patch"} do |f| %>
+<%= f.text_field :title, :class => "form-control", :value => @tytul %>
+<%= f.text_area :text, :class => "tinymce", :value => @tekst %>
+<h3>Utworzono: <%= @utworzone %></h3>
+<h3>Zmienono: <%= @zmienione %></h3>
+<%= f.submit :class => "btn btn-success pull-right", :value => "Zmień" %>
+<%= link_to "Powrót do listy", admin_pages_url, :class => "btn btn-default pull-right" %>
+<% end %>
