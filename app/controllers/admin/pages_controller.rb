@@ -35,6 +35,8 @@ class Admin::PagesController < ApplicationController
 	def destroy
 		@numer = params[:id]
 		Page.destroy(params[:id])
+		flash[:notice] = "Post successfully deleted"
+		redirect_to admin_pages_url
 	end
 
 	private
