@@ -1,5 +1,6 @@
 class Admin::PagesController < ApplicationController
-
+	before_action :authenticate_user!
+	
 	def index
 		@powitanie = "Strona główna panelu"
 		@pages = Page.all
